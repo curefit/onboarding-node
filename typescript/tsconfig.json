@@ -1,0 +1,22 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "*.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
