@@ -1,7 +1,9 @@
 const fs = require('fs').promises;
 
 async function readFile(fileName) {
-    return await fs.readFile(fileName, 'utf-8')
+    let content = await fs.readFile(fileName, 'utf-8')
+    console.log(content)
+    return content
 }
 
  function readOwnFile() {
@@ -10,7 +12,6 @@ async function readFile(fileName) {
 
 readOwnFile()
     .then(content => {
-        console.log(content)
     })
     .catch(error => {
         console.error("couldn't read file", error)
