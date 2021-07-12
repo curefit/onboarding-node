@@ -13,16 +13,12 @@ app.use(function (req, res, next) {
 
 
 app.get('/', (req, res) => {
-    res.send('My first experess node server!')
+    res.send('My first express node server!')
 })
 
 app.post('/', (req, res) => {
     console.log("req post body=", req.body)
     res.send(req.body)
-})
-
-app.get('/welcome', (req, res) => {
-    res.send({"message": "Hello World!"})
 })
 
 app.listen(port, () => {
