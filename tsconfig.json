@@ -3,6 +3,9 @@
     "target": "es5",
     "module": "commonjs",
     "skipLibCheck": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "outDir": "dist"
   }
 }

@@ -1,41 +1,30 @@
-const http = require('http');
-const host = 'localhost';
-const port = 8000;
+import express from 'express'
+import { json } from 'body-parser'
+const app = express()
+const port = 8000
 
-const requestListener = (req, res) => {
-    console.log("request url =" + req.url)
-    switch (req.url) {
-        case "/":
-            if (req.method === "GET") {
-                res.writeHead(200);
-                res.end("My first node server!");
-            } else if (req.method === "POST") {
+//app.METHOD(PATH, HANDLER)
+app.use(json())
 
-                let body = "";
-                req.on("data", function (chunk) {
-                    body += chunk;
-                    console.log("req post body=", body)
-                });
+app.use(function (req, res, next) {
+    console.log('Time:', Date.now())
+    next()
+})
 
 
-                req.on("end", function(){
-                    res.setHeader("Content-Type", "application/json");
-                    res.end(body);
-                });
-            }
-            break
-        case "/welcome":
-            res.setHeader("Content-Type", "application/json");
-            res.writeHead(200);
-            res.end(`{"message": "Hello World!"}`);
-            break
-        default:
-            res.writeHead(404);
-            res.end(`{"error": "Resource not found"}`);
-    }
-}
+app.get('/', (req, res) => {
+    res.send('My first experess node server!')
+})
 
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
-});
+app.post('/', (req, res) => {
+    console.log("req post body=", req.body)
+    res.send(req.body)
+})
+
+app.get('/welcome', (req, res) => {
+    res.send({"message": "Hello World!"})
+})
+
+app.listen(port, () => {
+    console.log(`App is listening at http://localhost:${port}`)
+})
