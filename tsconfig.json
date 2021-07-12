@@ -3,8 +3,6 @@
     "target": "es5",
     "module": "commonjs",
     "skipLibCheck": true,
-    "outDir": "dist",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "outDir": "dist"
   }
 }

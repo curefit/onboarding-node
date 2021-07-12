@@ -1,15 +1,21 @@
 {
-  "name": "inversify",
+  "name": "cf_server",
   "version": "1.0.0",
-  "description": "Inversify usage examples",
+  "description": "Testing cf_server_usage",
   "main": "index.ts",
+  "repository": "https://github.com/curefit/onboarding",
   "author": "Pravesh Jain",
   "license": "MIT",
   "dependencies": {
-    "inversify": "^5.1.1",
-    "reflect-metadata": "^0.1.13"
+    "@curefit/server": "7.10.0",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "4.3.4"
   },
   "scripts": {
-    "start-dev": "tsc --skipLibCheck && node dist/index.js"
+    "copy-configs": "mkdir -p dist/conf; cp conf/*.json dist/conf/",
+    "clean-dist": "rm -f -r -d dist",
+    "build": "npm run clean-dist && tsc --skipLibCheck && npm run copy-configs",
+    "start-dev": "tsc --skipLibCheck && node dist/index.js",
+    "build-start-dev": "npm run build  && npm run start-dev"
   }
 }

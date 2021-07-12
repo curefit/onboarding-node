@@ -1,0 +1,17 @@
+{
+    "appName": "cf_server_demo",
+    "loggingDir": "logs",
+    "port": 8080,
+    "serverConfigOptions": {
+        "disableServiceAccessAuth": true,
+        "disableApiKeyMappingCache": true,
+        "skipLogin": true,
+        "enableCFMiddlewareAuth": false
+    },
+    "mongoConf": {
+        "connections": [],
+        "isLeanQueryEnabled": false
+    },
+    "backendModeEnabled": true,
+    "ssoConfig": {}
+}
