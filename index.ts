@@ -1,5 +1,5 @@
 require("reflect-metadata")
-import kernel from "./ioc/kernel"
+import kernel from "./src/ioc/kernel"
 import { ServerConfig } from "@curefit/server"
 import { CFBaseServer, SERVER_TYPES } from "@curefit/server"
 

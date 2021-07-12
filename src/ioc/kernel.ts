@@ -1,6 +1,7 @@
 import { Container } from "inversify"
 
 import { AppConfigKernelModule } from "./AppConfigModule"
+import { ApplicationModule } from "./ApplicationModule"
 import { BaseKernelModule } from "@curefit/base"
 import { MongoModule } from "@curefit/mongo-utils"
 import { ErrorCommonModule } from "@curefit/error-common"
@@ -13,7 +14,8 @@ kernel.load(
     BaseKernelModule(kernel),
     MongoModule(kernel),
     ErrorCommonModule(kernel),
-	ServerModule(kernel)
+	ServerModule(kernel),
+    ApplicationModule(kernel)
 )
 
 export default kernel
