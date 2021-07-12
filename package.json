@@ -1,0 +1,20 @@
+{
+  "name": "simple_server",
+  "version": "1.0.0",
+  "description": "Simple node http server",
+  "main": "index.js",
+  "author": "hmittal",
+  "license": "MIT",
+  "scripts": {
+    "clean-dist": "rm -f -r -d dist",
+    "start-dev": "tsc --skipLibCheck && node dist/index.js",
+    "build": "npm run clean-dist && tsc --skipLibCheck && npm run copy-configs",
+    "build-start-dev": "npm run build && npm run start-dev"
+  },
+  "dependencies": {
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.1"
+  }
+}

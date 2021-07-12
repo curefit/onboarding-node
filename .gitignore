@@ -1,2 +1,4 @@
 .idea
-typescript/node_modules
+*.class
+node_modules
+dist
