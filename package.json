@@ -1,0 +1,14 @@
+{
+  "name": "inversify",
+  "version": "1.0.0",
+  "description": "Inversify usage examples",
+  "main": "index.ts",
+  "author": "Pravesh Jain",
+  "license": "MIT",
+  "dependencies": {
+    "inversify": "^5.1.1"
+  },
+  "scripts": {
+    "start-dev": "tsc --skipLibCheck && node dist/index.js"
+  }
+}
