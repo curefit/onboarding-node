@@ -7,7 +7,10 @@
   "author": "Pravesh Jain",
   "license": "MIT",
   "dependencies": {
+    "@curefit/events-util": "^1.1.1",
+    "@curefit/redis-utils": "^4.1.0",
     "@curefit/server": "7.10.0",
+    "@curefit/sqs-client": "^1.18.0",
     "reflect-metadata": "^0.1.13",
     "typescript": "4.3.4"
   },

@@ -13,5 +13,26 @@
         "isLeanQueryEnabled": false
     },
     "backendModeEnabled": true,
-    "ssoConfig": {}
+    "ssoConfig": {},
+    "redisConf": {
+        "connections": [
+            {
+                "entitySpace": "DEFAULT",
+                "hosts": [
+                    {
+                        "host": "localhost",
+                        "port": 6379
+                    }
+                ],
+                "redisOptions": {
+                    "password": ""
+                },
+                "isCluster": false
+            }
+        ]
+    },
+    "eventsConf": {
+        "arnPrefix": "arn:aws:sns:ap-south-1:035243212545:",
+        "sqsPrefix": "https://sqs.ap-south-1.amazonaws.com/035243212545/"
+    }
 }
