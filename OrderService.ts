@@ -1,21 +1,23 @@
-import { AWSEmailService } from "./AWSEmailService"
+import { IEmailService } from "./IEmailService"
+import { inject, injectable } from "inversify"
+import { TYPES } from "./types"
+import { IOrderService } from "./IOrderService"
 
+@injectable()
+export class OrderService implements IOrderService {
 
-export class OrderService {
-
-	private emailService: AWSEmailService
-
-	constructor() {
-		this.emailService = new AWSEmailService()
+	constructor(
+		@inject(TYPES.AWSEmailService) private emailService: IEmailService
+	) {
 	}
 
 	public createOrder() {
 
 		// Business Logic here
-		this.sendInvoiceEmail()
+		this.sendInvoiceEmail("pravesh@curefit.com")
 	}
 
-	private sendInvoiceEmail() {
-		this.emailService.sendEmail()
+	private sendInvoiceEmail(email: string) {
+		this.emailService.sendEmail(email)
 	}
 }
