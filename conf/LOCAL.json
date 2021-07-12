@@ -9,8 +9,25 @@
         "enableCFMiddlewareAuth": false
     },
     "mongoConf": {
-        "connections": [],
-        "isLeanQueryEnabled": false
+        "connections": [
+            {
+                "entitySpace": "DEFAULT",
+                "instance": {
+                    "children": [
+                        {
+                            "host": "localhost:27017"
+                        }
+                    ]
+                },
+                "credentials": {
+                    "dbName": "employee-db",
+                    "username": "",
+                    "password": "",
+                    "ssl": false
+                }
+            }
+        ],
+        "isLeanQueryEnabled": true
     },
     "backendModeEnabled": true,
     "ssoConfig": {}
