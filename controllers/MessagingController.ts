@@ -16,7 +16,8 @@ export function MessagingControllerFactory(kernel: Container) {
 
         @httpPost("/sns")
         public async getKey(request): Promise<{ status: boolean }> {
-            const {topic, payload, eventType} = request.body
+            const {payload, eventType} = request.body
+            const topic = "dev-rohit"
             const eventData = new EventData(eventType, undefined, new Date().getTime(), payload)
             return {status: await this.eventsService.publishMessage(topic, eventData)}
         }

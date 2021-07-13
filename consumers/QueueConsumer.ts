@@ -12,7 +12,7 @@ class QueueConsumer extends BaseDelayedBatchedQueueHandler {
         @inject(BASE_TYPES.ILogger) private logger: ILogger,
         @inject(BASE_TYPES.FetchUtilV2) private fetchHelper: FetchUtilV2
     ) {
-        super("rohit-test", 10, queueService, 0)
+        super("dev-rohit", 10, queueService, 0)
         this.logger.info("Started queue consumer")
     }
 
