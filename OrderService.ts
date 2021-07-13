@@ -7,7 +7,7 @@ import { IOrderService } from "./IOrderService"
 export class OrderService implements IOrderService {
 
 	constructor(
-		@inject(TYPES.AWSEmailService) private emailService: IEmailService
+		@inject(TYPES.EmailService) private emailService: IEmailService
 	) {
 	}
 

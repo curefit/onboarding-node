@@ -1,4 +1,4 @@
 export const TYPES = {
-	AWSEmailService: "AWSEmailService",
+	EmailService: "EmailService",
 	OrderService: "OrderService"
 }

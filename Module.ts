@@ -7,7 +7,7 @@ import { OrderService } from "./OrderService"
 
 export function Module(kernel: Inversify.Container) {
 	return new Inversify.ContainerModule((bind: Inversify.interfaces.Bind) => {
-		bind<IEmailService>(TYPES.AWSEmailService).to(AWSEmailService)
+		bind<IEmailService>(TYPES.EmailService).to(AWSEmailService)
 		bind<IOrderService>(TYPES.OrderService).to(OrderService)
 	})
 }
