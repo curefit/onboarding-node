@@ -4,6 +4,7 @@
     "module": "commonjs",
     "skipLibCheck": true,
     "outDir": "dist",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "sourceMap": true
   }
 }
