@@ -36,9 +36,9 @@ mkdir -p ${BUILD_DIR_PATH}/deploy
 cd ..
 
 mkdir -p ${BUILD_DIR_PATH}/${name}
-cp -r ${name}/node_modules ${BUILD_DIR_PATH}/${name}
-cp -r ${name}/dist ${BUILD_DIR_PATH}/${name}
-cp -r ${name}/conf/*.json ${BUILD_DIR_PATH}/${name}
+cp -r ./node_modules ${BUILD_DIR_PATH}/${name}
+cp -r ./dist ${BUILD_DIR_PATH}/${name}
+cp -r ./conf/*.json ${BUILD_DIR_PATH}/${name}
 
 set +x
 set +e
