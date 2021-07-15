@@ -32,5 +32,3 @@ metrics:
 service:
   expose:
     - 6010
-externalSecrets:
-  enabled: "true"
