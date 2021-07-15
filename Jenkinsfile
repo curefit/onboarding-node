@@ -24,20 +24,6 @@ pipeline {
         }
       };
     stage('Prepare Docker Image for Alpha Environment') {
-          when { branch 'stage' }
-          environment {
-            VERSION = "$BUILD_NUMBER-$BRANCH_NAME".replaceAll('_','-')
-            }
-          steps {
-              script{
-                def URL = "${DOCKER_REGISTRY}/${ORG}/${APP_NAME}:${VERSION}"
-                buildDockerfile("${APP_NAME}", URL, "stage")
-                pushDockerImage(URL)
-                updateArtifact("${DOCKER_REGISTRY}/${ORG}/${APP_NAME}", "${VERSION}", "stage")
-              }
-            }
-          };
-    stage('Prepare Docker Image for Alpha Environment') {
           when { branch 'alpha' }
           environment {
             VERSION = "$BUILD_NUMBER-$BRANCH_NAME".replaceAll('_','-')
