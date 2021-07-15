@@ -29,12 +29,11 @@ rm -rf dist || true
 yarn install
 npm run build
 echo "Server Built Successfully"
-cd ..
 
 mkdir -p ${BUILD_DIR_PATH}/deploy
 
-cd ..
-
+echo "CWD is "
+ls
 mkdir -p ${BUILD_DIR_PATH}/${name}
 cp -r ./node_modules ${BUILD_DIR_PATH}/${name}
 cp -r ./dist ${BUILD_DIR_PATH}/${name}
