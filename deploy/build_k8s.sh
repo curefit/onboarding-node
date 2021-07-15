@@ -23,7 +23,6 @@ then
 fi
 
 echo "Building Server"
-cd server
 rm -rf node_modules || true
 rm -rf public || true
 rm -rf dist || true
