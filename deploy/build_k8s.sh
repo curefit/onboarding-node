@@ -32,8 +32,6 @@ echo "Server Built Successfully"
 
 mkdir -p ${BUILD_DIR_PATH}/deploy
 
-echo "CWD is "
-ls
 mkdir -p ${BUILD_DIR_PATH}/${name}
 cp -r ./node_modules ${BUILD_DIR_PATH}/${name}
 cp -r ./dist ${BUILD_DIR_PATH}/${name}
