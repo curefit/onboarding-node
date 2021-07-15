@@ -2,8 +2,6 @@ deployment:
   podAnnotations:
     iam.amazonaws.com/role: arn:aws:iam::035243212545:role/k8s-onboarding-order-service
   probePort: 8080
-  serviceAccount:
-    enabled: "true"
   labels:
     billing: platforms
     sub-billing: node-onboarding-service
