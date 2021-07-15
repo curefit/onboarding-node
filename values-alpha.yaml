@@ -1,0 +1,38 @@
+deployment:
+  podAnnotations:
+    iam.amazonaws.com/role: arn:aws:iam::035243212545:role/k8s-onboarding-order-service
+  probePort: 6010
+  serviceAccount:
+    enabled: "true"
+  labels:
+    billing: platforms
+    sub-billing: node-onboarding-service
+  resources:
+    limits:
+      cpu: 2
+      memory: 3Gi
+    requests:
+      cpu: 50m
+      memory: 100Mi
+  env:
+    - name: ENVIRONMENT
+      value: "ALPHA"
+    - name: APP_ENV
+      value: "ALPHA"
+istio:
+  internal:
+    hosts:
+      - onboarding-order-service.alpha.cure.fit.internal
+  external:
+    hosts:
+      - onboarding-order-service.alpha.curefit.co
+metrics:
+  enabled: true
+  interval: 30s
+  path: /metrics
+  port: 3000
+service:
+  expose:
+    - 6010
+externalSecrets:
+  enabled: "true"
