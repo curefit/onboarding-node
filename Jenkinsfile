@@ -65,6 +65,38 @@ pipeline {
             }
         }
       };
+          stage ('Preparing Docker Image for Dev testing Environment') {
+            agent {
+                label "k8s-slave-cf-api"
+            }
+            when {
+              not {
+                anyOf {
+                  expression { params.branchName == null }
+                  expression { params.branchName == "stage" }
+                  expression { params.branchName == "alpha" }
+                  expression { params.branchName == "master" }
+                }
+              }
+            }
+            environment {
+              VERSION = "$BUILD_NUMBER-$virtualClusterName".replaceAll('_','-')
+              APP_VERSION = "$GIT_COMMIT"
+              VOYAGER_URL = 'http://voyager.production.cure.fit.internal/echidna/deployment'
+            }
+            steps {
+                script{
+                  buildExecutable("${APP_NAME}", "stage")
+                  sh "echo building ${DOCKER_REGISTRY}/${ORG}/${APP_NAME}:${VERSION}"
+                  def URL = "${DOCKER_REGISTRY}/${ORG}/${APP_NAME}:${VERSION}"
+                  buildDockerfile("${APP_NAME}", URL, "stage")
+                  pushDockerImage(URL)
+                  updateArtifact("${DOCKER_REGISTRY}/${ORG}/${APP_NAME}", "${VERSION}", "stage")
+
+                  sh "curl -sf -X POST \"${VOYAGER_URL}/${params.deploymentId}/trigger\" -H 'Content-Type: application/json;charset=UTF-8' --data-raw '{\"appName\": \"${APP_NAME}\", \"repoName\": \"${params.repoName}\", \"virtualClusterName\": \"${params.virtualClusterName}\", \"imageUrl\": \"${DOCKER_REGISTRY}/${ORG}/${APP_NAME}\", \"imageTag\": \"${VERSION}\"}'"
+                }
+              }
+            };
     }
   post {
     success {
