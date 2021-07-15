@@ -10,7 +10,7 @@ pipeline {
     }
   stages {
     stage('Prepare Docker Image for Stage Environment') {
-      when { branch 'order-service' }
+      when { branch 'stage' }
       environment {
         PREVIEW_VERSION = "$BUILD_NUMBER-$BRANCH_NAME".replaceAll('_','-')
         }
