@@ -25,7 +25,7 @@ istio:
     hosts:
       - onboarding-order-service.alpha.curefit.co
 metrics:
-  enabled: true
+  enabled: false
   interval: 30s
   path: /metrics
   port: 3000
