@@ -31,4 +31,4 @@ metrics:
   port: 3000
 service:
   expose:
-    - 6010
+    - 8080
