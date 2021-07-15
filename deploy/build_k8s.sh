@@ -5,7 +5,7 @@
 set -x
 set -e
 
-name="voyager"
+name="onboarding-node"
 BUILD_DIR_PATH=$1
 ENV=$2
 echo "Current Build Directory ${BUILD_DIR_PATH}"
@@ -37,9 +37,9 @@ mkdir -p ${BUILD_DIR_PATH}/deploy
 cd ..
 
 mkdir -p ${BUILD_DIR_PATH}/${name}
-cp -r ${name}/server/node_modules ${BUILD_DIR_PATH}/${name}
-cp -r ${name}/server/dist ${BUILD_DIR_PATH}/${name}
-cp -r ${name}/server/*.json ${BUILD_DIR_PATH}/${name}
+cp -r ${name}/node_modules ${BUILD_DIR_PATH}/${name}
+cp -r ${name}/dist ${BUILD_DIR_PATH}/${name}
+cp -r ${name}/conf/*.json ${BUILD_DIR_PATH}/${name}
 
 set +x
 set +e
