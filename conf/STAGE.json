@@ -1,0 +1,43 @@
+{
+    "appName": "cf_server_demo",
+    "loggingDir": "logs",
+    "port": 8080,
+    "serverConfigOptions": {
+        "disableServiceAccessAuth": true,
+        "disableApiKeyMappingCache": true,
+        "skipLogin": true,
+        "enableCFMiddlewareAuth": false
+    },
+    "mongoConf": {
+        "connections": [
+            {
+                "entitySpace": "DEFAULT",
+                "instance": {
+                    "replicaSetName": "stage-shard-0",
+                    "children": [
+                        {
+                            "host": "stage-shard-00-00-tfwfr.mongodb.net"
+                        },
+                        {
+                            "host": "stage-shard-00-01-tfwfr.mongodb.net"
+                        },
+                        {
+                            "host": "stage-shard-00-02-tfwfr.mongodb.net"
+                        }
+                    ]
+                },
+                "credentials": {
+                    "dbName": "order-service",
+                    "replicaSetName": "stage-shard-0",
+                    "username": "service-access",
+                    "password": "xkcD32PCnGOfdril",
+                    "ssl": true,
+                    "authSource": "admin"
+                }
+            }
+        ],
+        "isLeanQueryEnabled": true
+    },
+    "backendModeEnabled": true,
+    "ssoConfig": {}
+}
