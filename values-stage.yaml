@@ -1,6 +1,6 @@
 deployment:
   podAnnotations:
-    iam.amazonaws.com/role: arn:aws:iam::035243212545:role/k8s-onboarding-order-service
+    iam.amazonaws.com/role: arn:aws:iam::035243212545:role/k8s-onboarding-order-service-stage
   probePort: 8080
   labels:
     billing: platforms
