@@ -20,8 +20,18 @@ export class IssueController {
         return Promise.resolve(true);
     }
 
+    @httpGet("/cpu")
+    public createCpuIssue(request: express.Request): Promise<boolean> {
+        let count = 0;
+        for(let i = 0; i < 10000000000; i++) {
+            count += 1;
+        }
+
+        return Promise.resolve(true);
+    }
+
     @httpGet("/memory")
-    public createIssue(request: express.Request) {
+    public createMemoryIssue(request: express.Request) {
         this.logger.info("In create memory issue!!");
 
         function alloc (size) {
