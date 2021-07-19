@@ -8,22 +8,35 @@
         "skipLogin": true,
         "enableCFMiddlewareAuth": false
     },
+    "rollbar": {
+        "enabled": true,
+        "key": "44e3b90c5c5a4745a66565f2d418f214"
+    },
     "mongoConf": {
         "connections": [
             {
                 "entitySpace": "DEFAULT",
                 "instance": {
+                    "replicaSetName": "stage-shard-0",
                     "children": [
                         {
-                            "host": "localhost:27017"
+                            "host": "stage-shard-00-00-tfwfr.mongodb.net"
+                        },
+                        {
+                            "host": "stage-shard-00-01-tfwfr.mongodb.net"
+                        },
+                        {
+                            "host": "stage-shard-00-02-tfwfr.mongodb.net"
                         }
                     ]
                 },
                 "credentials": {
                     "dbName": "order-service",
-                    "username": "",
-                    "password": "",
-                    "ssl": false
+                    "replicaSetName": "stage-shard-0",
+                    "username": "service-access",
+                    "password": "xkcD32PCnGOfdril",
+                    "ssl": true,
+                    "authSource": "admin"
                 }
             }
         ],
