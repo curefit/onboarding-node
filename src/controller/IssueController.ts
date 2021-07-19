@@ -16,7 +16,7 @@ export class IssueController {
 
     @httpGet("/test")
     public testFunction(request: express.Request): Promise<boolean> {
-        this.logger.info("In test function!");
+        this.rollbarService.sendError(new Error("This is a test error!!"));
         return Promise.resolve(true);
     }
 
