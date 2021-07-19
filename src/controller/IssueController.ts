@@ -48,7 +48,8 @@ export class IssueController {
 
             let allocationStep = 100 * 1024;
 
-            while (true) {
+            let i = 10000;
+            while (i > 0) {
                 // Allocate memory.
                 const allocation = alloc(allocationStep);
 
@@ -58,8 +59,8 @@ export class IssueController {
                 // Check how much memory is now allocated.
                 const mu = process.memoryUsage();
                 const mbNow = mu[field] / 1024 / 1024 / 1024;
-                //console.log(`Total allocated       ${Math.round(mbNow * 100) / 100} GB`);
                 console.log(`Allocated since start ${Math.round((mbNow - gbStart) * 100) / 100} GB`);
+                i -= 1;
             }
         };
 
