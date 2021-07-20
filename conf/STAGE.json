@@ -10,7 +10,7 @@
     },
     "rollbar": {
         "enabled": true,
-        "key": "cfee0c8df8ab4be28cbe6a410ba0de06"
+        "key": "ed331efd9f4f4d718883b5e33b180b19"
     },
     "mongoConf": {
         "connections": [

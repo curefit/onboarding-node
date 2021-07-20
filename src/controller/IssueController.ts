@@ -1,9 +1,6 @@
-import {controller, httpGet, httpPost} from "inversify-express-utils"
+import {controller, httpGet} from "inversify-express-utils"
 import * as express from "express"
 import {inject} from "inversify";
-import {TYPES} from "../ioc/types";
-import {IOrderService} from "../service/IOrderService";
-import {CreateOrderParams} from "../common/CreateOrderParams";
 import { ERROR_COMMON_TYPES, RollbarService } from "@curefit/error-common"
 import {BASE_TYPES, ILogger} from "@curefit/base";
 
@@ -34,11 +31,6 @@ export class IssueController {
         return Promise.resolve(true);
     }
 
-    // @httpGet("/memory")
-    // public createMemoryIssue(request: express.Request): Promise<boolean> {
-    //
-    // }
-
     @httpGet("/crash")
     public createCrashIssue(request: express.Request) {
         this.logger.info("In create memory issue!!");
@@ -51,7 +43,7 @@ export class IssueController {
                 arr[i] = i;
             }
             return arr;
-        };
+        }
 
         const allocations = [];
 
@@ -81,7 +73,7 @@ export class IssueController {
                 console.log(`Allocated since start ${Math.round((mbNow - gbStart) * 100) / 100} GB`);
                 i -= 1;
             }
-        };
+        }
 
         allocToMax();
 
