@@ -9,12 +9,16 @@ import {BASE_TYPES, ILogger} from "@curefit/base";
 
 @controller("/issue")
 export class IssueController {
+    private referenceHolder: string[]
+
     constructor(
         @inject(BASE_TYPES.ILogger) private logger: ILogger,
         @inject(ERROR_COMMON_TYPES.RollbarService) private rollbarService: RollbarService,
-    ) {}
+    ) {
+        this.referenceHolder = []
+    }
 
-    @httpGet("/test")
+    @httpGet("/rollbar")
     public testFunction(request: express.Request): Promise<boolean> {
         this.rollbarService.sendError(new Error("This is a test error!!"));
         return Promise.resolve(true);
@@ -30,8 +34,13 @@ export class IssueController {
         return Promise.resolve(true);
     }
 
-    @httpGet("/memory")
-    public createMemoryIssue(request: express.Request) {
+    // @httpGet("/memory")
+    // public createMemoryIssue(request: express.Request): Promise<boolean> {
+    //
+    // }
+
+    @httpGet("/crash")
+    public createCrashIssue(request: express.Request) {
         this.logger.info("In create memory issue!!");
 
         function alloc (size) {
