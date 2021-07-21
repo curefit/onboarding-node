@@ -4,7 +4,7 @@ pipeline {
     }
   environment {
     ORG = 'curefit'
-    APP_NAME = 'onboarding-order-service'
+    APP_NAME = 'onboarding-node'
     NPM_TOKEN = credentials('npm-token')
     GITHUB_NPM_TOKEN = credentials('github-npm-token')
     }
