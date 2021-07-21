@@ -11,11 +11,13 @@ import {OrderService} from "../service/OrderService";
 import {IProductService} from "../service/IProductService";
 import {ProductService} from "../service/ProductService";
 import {IssueController} from "../controller/IssueController";
+import {HelloController} from "../controller/HelloController";
 
 export function ApplicationModule(kernel: Inversify.Container): ContainerModule {
     return new Inversify.ContainerModule((bind: Inversify.interfaces.Bind) => {
     	OrderController
         IssueController
+        HelloController
         bind<OrderSchema>(TYPES.OrderSchema).to(OrderSchema).inSingletonScope()
         bind<IOrderReadWriteDao>(TYPES.OrderReadwriteDao).to(OrdersReadWriteDaoMongoImpl).inSingletonScope()
         bind<IOrderReadonlyDao>(TYPES.OrderReadOnlyDao).to(OrdersReadonlyDaoMongoImpl).inSingletonScope()
