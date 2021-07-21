@@ -11,4 +11,11 @@ export class EchoController {
     constructor(
         @inject(ERROR_COMMON_TYPES.RollbarService) private rollbarService: RollbarService,
     ) {}
+
+    @httpGet("/:echoString")
+    public echoOutStuff(request: express.Request): Promise<string> {
+        const echoString: string = request.params.echoString;
+
+        return Promise.resolve(echoString);
+    }
 }
