@@ -9,7 +9,7 @@
         "enableCFMiddlewareAuth": false
     },
     "rollbar": {
-        "enabled": true,
+        "enabled": false,
         "key": "ed331efd9f4f4d718883b5e33b180b19"
     },
     "mongoConf": {
