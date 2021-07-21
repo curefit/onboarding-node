@@ -5,7 +5,7 @@
 set -x
 set -e
 
-name="onboarding-order-service"
+name="onboarding-node"
 BUILD_DIR_PATH=$1
 ENV=$2
 echo "Current Build Directory ${BUILD_DIR_PATH}"
