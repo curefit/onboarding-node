@@ -29,7 +29,8 @@ export class HelloController {
         const { name } = request.params
         const voyagerEndpointURL = `https://${process.env.VOYAGER_URL}/logging/${name}`
         const headers = {
-            "Content-Type": "application/json;charset=UTF-8"
+            "Content-Type": "application/json;charset=UTF-8",
+            "virtual-cluster-name": `${name}`
         }
         this.logger.info(`Calling voyager with name as input.`);
 
