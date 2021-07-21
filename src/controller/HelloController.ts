@@ -20,7 +20,7 @@ export class HelloController {
     public printNameFunction(request: any): Promise<any> {
         const { name } = request.params
         this.logger.info(`Hello from ${name}!`);
-        return Promise.resolve("OK");
+        return Promise.resolve(`My name is ${name}!`)
     }
 
     @httpGet("/:name/voyager")
