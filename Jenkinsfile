@@ -72,7 +72,6 @@ pipeline {
             }
             steps {
                 script{
-                  buildExecutable("${APP_NAME}", "stage")
                   sh "echo building ${DOCKER_REGISTRY}/${ORG}/${APP_NAME}:${VERSION}"
                   def URL = "${DOCKER_REGISTRY}/${ORG}/${APP_NAME}:${VERSION}"
                   buildDockerfile("${APP_NAME}", URL, "stage")
