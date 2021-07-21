@@ -11,15 +11,4 @@ export class EchoController {
     constructor(
         @inject(ERROR_COMMON_TYPES.RollbarService) private rollbarService: RollbarService,
     ) {}
-
-    @httpGet("/")
-    public echoStuff(request: express.Request): Promise<string> {
-        let i = 0;
-        while (i < 10) {
-            this.rollbarService.sendError(new Error("Shit's going down!!"));
-            i += 1;
-        }
-
-        return Promise.resolve("Hello World");
-    }
 }
