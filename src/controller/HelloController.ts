@@ -27,7 +27,7 @@ export class HelloController {
     public printInVoyager(request: any): Promise<any> {
 
         const { name } = request.params
-        const voyagerEndpointURL = `${process.env.VOYAGER_URL}/logging/${name}`
+        const voyagerEndpointURL = `https://${process.env.VOYAGER_URL}/logging/${name}`
         const headers = {
             "Content-Type": "application/json;charset=UTF-8"
         }
