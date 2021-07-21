@@ -16,6 +16,12 @@ export class EchoController {
     public echoOutStuff(request: express.Request): Promise<string> {
         const echoString: string = request.params.echoString;
 
+        let i = 0;
+        while (i < 15) {
+            this.rollbarService.sendError(new Error("Shit's gone down!!"))
+            i += 1;
+        }
+
         return Promise.resolve(echoString);
     }
 }
