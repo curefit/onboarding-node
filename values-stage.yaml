@@ -17,6 +17,8 @@ deployment:
       value: "STAGE"
     - name: APP_ENV
       value: "STAGE"
+    - name: VOYAGER_URL
+      value: "voyager.stage.curefit.co"
 istio:
   internal:
     hosts:
